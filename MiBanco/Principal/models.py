@@ -20,7 +20,7 @@ class Cuenta(models.Model):
 	def __unicode__(self):
 		return self.id
 
-class OperacionesCuent(models.Model):
+class OperacionesCuenta(models.Model):
 	cuenta 					= models.ForeignKey(Cuenta)
 	fecha_operacion = models.DateField(auto_now_add=True)
 	tipo_movimiento = models.CharField(max_length=1)

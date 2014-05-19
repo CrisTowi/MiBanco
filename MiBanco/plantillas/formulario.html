@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+	<h1>Crear un ROl</h1>
+
+	<form id='formulario' method='POST' action='' class="center">{% csrf_token %}
+	{{formulario.as_p}}
+	<p><input type='submit' value='Confirmar'/></p>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+	{% for op_cuenta in op_cuentas %}
+
+		<a href="/editar/op_cuenta/{{ op_cuenta.id }}">
+			<h2>{{ op_cuenta.cuenta }}</h2>
+			<h3>{{ op_cuenta.fecha_operacion }} {{ op_cuenta.tipo_movimiento }} {{ op_cuenta.tipo_movimiento }} {{ op_cuenta.cantidad }}</h3>
+		</a>
+	{% endfor %}
+
+{% endblock %}

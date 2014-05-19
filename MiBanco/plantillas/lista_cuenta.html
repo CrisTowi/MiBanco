@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+	{% for cuenta in cuentas %}
+
+		<a href="/editar/cuenta/{{ cuenta.id }}">
+		<h2>Cuenta con id: {{ cuenta.id }}: con balance {{ cuenta.balance }}</h2>
+		<h3>{{ cuenta.cliente.nombre }} {{ cuenta.cliente.ap_paterno }} {{ cuenta.cliente.ap_materno }}</h3>
+		</a>
+	{% endfor %}
+
+{% endblock %}

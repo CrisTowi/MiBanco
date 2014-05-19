@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+	{% for cliente in clientes %}
+
+		<a href="/editar/cliente/{{ cliente.id }}">
+			<h2>{{ cliente.nombre }}</h2>
+			<h3>{{ cliente.ap_paterno }} {{ cliente.ap_materno }}</h3>
+		</a>
+	{% endfor %}
+
+{% endblock %}
