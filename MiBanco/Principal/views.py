@@ -67,7 +67,7 @@ def nueva_operacion_cuenta(request):
 
 	if request.method == 'POST':
 		id_cuenta = request.POST['cuenta']
-		tipo_movimiento = request.POST['tipo_mov']
+		tipo_movimiento = request.POST['tipo_movimiento']
 		cantidad = float(request.POST['cantidad'])
 
 		cuenta = Cuenta.objects.get(id = id_cuenta)
@@ -195,3 +195,49 @@ def lista_cliente(request):
 	return render(request, 'lista_cliente.html', ctx)
 
 
+
+@csrf_exempt
+def EditaCuenta(request):
+
+	if request.method == 'POST':
+		cuenta = Cuenta.objects.get(id = 	request.POST['id'])
+
+		cuenta.balance = float(request.POST['balance'])
+		cuenta.cliente = Cliente.objects.get(id = request.POST['cliente'])
+		cuenta.save()
+
+	return 
+
+@csrf_exempt
+def EditaCliente(request):
+
+	if request.method == 'POST':
+		cliente = Cliente.objects.get(id = 	request.POST['id'])
+
+		cliente.nombre = request.POST['nombre']
+		cliente.ap_paterno = request.POST['ap_paterno']
+		cliente.ap_materno = request.POST['ap_materno']
+		cliente.num_telefonico = request.POST['num_telefonico']
+		cliente.calle = request.POST['calle']
+		cliente.colonia = request.POST['numero']
+		cliente.numero = int(request.POST['numero'])
+		
+		cliente.save()
+
+	return 
+
+@csrf_exempt
+def EditaOpCuenta(request):
+
+	print request.POST
+
+	if request.method == 'POST':
+		op_cuenta = OperacionesCuenta.objects.get(id = request.POST['id'])
+
+		op_cuenta.cuenta = Cuenta.objects.get(id = request.POST['cuenta'])
+		op_cuenta.tipo_movimiento = request.POST['tipo_movimiento']
+		op_cuenta.cantidad = float(request.POST['cantidad'])
+		
+		op_cuenta.save()
+
+	return 
